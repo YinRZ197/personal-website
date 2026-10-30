@@ -16,6 +16,7 @@ export default function Navbar() {
         <button onClick={toggleTheme} className="text-xl text-gray-800 dark:text-white">
           {isDark ? '🌙 暗色' : '☀️ 亮色'}
         </button>
+        <Link to="/admin" className="text-gray-800 dark:text-gray-100">管理后台</Link>
       </div>
     </nav>
   )

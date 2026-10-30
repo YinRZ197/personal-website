@@ -1,15 +1,19 @@
+import { useSiteData } from '../hooks/useSiteData'
+
 export default function Contact() {
+  const { data } = useSiteData()
+  const { settings } = data
   return (
     <div className="p-8 max-w-4xl mx-auto bg-blue-50 dark:bg-slate-900 min-h-screen">
       <h1 className="text-4xl font-bold mb-6 dark:text-white">联系我</h1>
       <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
-        欢迎交流项目、技术学习相关内容！
+        {settings.welcome}
       </p>
 
       <div className="space-y-4 text-lg dark:text-gray-200">
-        <p className="dark:text-gray-200">📧 邮箱：389411361@qq.com</p>
-        <p className="dark:text-gray-200">💻 GitHub：github.com/YinRZ97</p>
-        <p className="dark:text-gray-200">🏫 学校：大连民族大学</p>
+        {settings.contactLines.map((c, i) => (
+          <p key={i} className="dark:text-gray-200">{c.icon} {c.label}：{c.value}</p>
+        ))}
       </div>
 
       <div className="mt-10 p-6 border rounded-lg shadow-sm dark:bg-slate-800">
